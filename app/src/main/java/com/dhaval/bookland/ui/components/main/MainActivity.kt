@@ -43,10 +43,10 @@ enum class BottomTab(
     val title: String,
     val icon: Int,
 ) {
-    TO_READ("To Read", R.drawable.ic_to_read),
-    READING("Reading", R.drawable.ic_reading),
-    FINISHED("Finished", R.drawable.ic_finished),
-    MORE("More", R.drawable.ic_more_hor),
+    TO_READ("Zu Lesen", R.drawable.ic_to_read),
+    READING("Lese gerade", R.drawable.ic_reading),
+    FINISHED("Beendet", R.drawable.ic_finished),
+    MORE("Mehr", R.drawable.ic_more_hor),
 }
 
 class MainActivity : ComponentActivity() {

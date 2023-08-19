@@ -39,7 +39,7 @@ import com.dhaval.bookland.viewmodels.BookViewModel
 import org.apache.commons.io.IOUtils
 import java.io.*
 
-val items = listOf("Theme", "General", "Changelog", "About")
+val items = listOf("Thema", "General", "Changelog", "Über")
 
 private var openClearDatabaseDialog by mutableStateOf(false)
 private var openImportDialog by mutableStateOf(false)
@@ -48,11 +48,11 @@ private var openExportDialog by mutableStateOf(false)
 @Composable
 fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel: BookViewModel, navController: NavHostController) {
     val openDialog = remember { mutableStateOf(false) }
-    val radioOptions = listOf("Light", "Dark", "Auto")
+    val radioOptions = listOf("Hell", "Dunkel", "Auto")
 
     val value = when(PrefsHelper.readInt(PrefsHelper.THEME_MODE, 2)) {
-        0 -> "Light"
-        1 -> "Dark"
+        0 -> "Hell"
+        1 -> "Dunkel"
         else -> "Auto"
     }
 
@@ -82,7 +82,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                 end = 0.dp,
                 bottom = 10.dp,
             ),
-            text = "Appearance",
+            text = "Aussehen",
             style = TextStyle(
                 fontSize = 15.sp,
                 color = MaterialTheme.colors.primary,
@@ -93,8 +93,8 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
 
         MoreItem(
             icon = R.drawable.ic_paint,
-            title = "Theme",
-            description = "Main theme of the app",
+            title = "Thema",
+            description = "Farbpallette der App ändern",
             onClick = {
                 openDialog.value = true
             },
@@ -107,7 +107,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                 end = 0.dp,
                 bottom = 10.dp,
             ),
-            text = "Data",
+            text = "Daten",
             style = TextStyle(
                 fontSize = 15.sp,
                 color = MaterialTheme.colors.primary,
@@ -118,8 +118,8 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
 
         MoreItem(
             icon = R.drawable.ic_export,
-            title = "Export",
-            description = "Export database as a file",
+            title = "Exportieren",
+            description = "Als Datei exportieren",
             onClick = {
                 openExportDialog = true
             },
@@ -127,8 +127,8 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
 
         MoreItem(
             icon = R.drawable.ic_import,
-            title = "Import",
-            description = "Import database from a file",
+            title = "Importieren",
+            description = "Von Datei importieren",
             onClick = {
                 openImportDialog = true
             },
@@ -167,7 +167,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                     )
                     Text(
                         modifier = Modifier.padding(25.dp, 0.dp),
-                        text = "Delete all your tracked records",
+                        text = "Alle Einträge löschen",
                         style = TextStyle(
                             fontSize = 15.sp,
                             color = Color.Red,
@@ -185,7 +185,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                 end = 0.dp,
                 bottom = 10.dp,
             ),
-            text = "Information",
+            text = "Info",
             style = TextStyle(
                 fontSize = 15.sp,
                 color = MaterialTheme.colors.primary,
@@ -196,8 +196,8 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
 
         MoreItem(
             icon = R.drawable.ic_info,
-            title = "About",
-            description = "A bit about this app and developer",
+            title = "Über",
+            description = "Über die App und seinen Entwickler",
             onClick = {
                 navController.navigate(Screen.About.route)
             },
@@ -205,8 +205,8 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
 
         MoreItem(
             icon = R.drawable.ic_article,
-            title = "Libraries",
-            description = "Open source licenses",
+            title = "Bibliotheken",
+            description = "Öffentliche Lizenzen",
             onClick = {
                 navController.navigate(Screen.Libraries.route)
             },
@@ -220,7 +220,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
             },
             title = {
                 Text(
-                    text = "Theme",
+                    text = "Thema",
                     color = MaterialTheme.colors.onSecondary,
                 )
             },
@@ -266,11 +266,11 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                         openDialog.value = false
 
                         when(selectedOption) {
-                            "Light" -> {
+                            "Hell" -> {
                                 application.themeMode.value = ThemeMode.LIGHT
                                 PrefsHelper.writeInt(PrefsHelper.THEME_MODE, ThemeMode.LIGHT.ordinal)
                             }
-                            "Dark" -> {
+                            "Dunkel" -> {
                                 application.themeMode.value = ThemeMode.DARK
                                 PrefsHelper.writeInt(PrefsHelper.THEME_MODE, ThemeMode.DARK.ordinal)
                             }
@@ -331,7 +331,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                         openExportDialog = false
                     }
                 ) {
-                    Text("Export")
+                    Text("Exportieren")
                 }
             },
             dismissButton = {
@@ -392,7 +392,7 @@ fun MoreScreen(context: Context, application: BooklandApplication, bookViewModel
                         openImportDialog = false
                     }
                 ) {
-                    Text("Import")
+                    Text("Importieren")
                 }
             },
             dismissButton = {

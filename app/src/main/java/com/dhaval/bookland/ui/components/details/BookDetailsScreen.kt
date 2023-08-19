@@ -38,7 +38,7 @@ private var openRemoveDialog by mutableStateOf(false)
 fun BookDetailsScreen(context: Context, navController: NavHostController, bookViewModel: BookViewModel, item: Items) {
     val scrollState = rememberScrollState()
     val openDialog = remember { mutableStateOf(false) }
-    val radioOptions = listOf("To Read", "Reading", "Finished")
+    val radioOptions = listOf("Zu Lesen", "Lese gerade", "Beendet")
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[0]) }
 
     Scaffold(
@@ -133,9 +133,9 @@ fun BookDetailsScreen(context: Context, navController: NavHostController, bookVi
                         openDialog.value = false
 
                         when(selectedOption) {
-                            "To Read" -> item.status = Status.TO_READ
-                            "Reading" -> item.status = Status.READING
-                            "Finished" -> item.status = Status.FINISHED
+                            "Zu Lesen" -> item.status = Status.TO_READ
+                            "Lese gerade" -> item.status = Status.READING
+                            "Beendet" -> item.status = Status.FINISHED
                         }
 
                         item.let { bookViewModel.insertItem(it) }

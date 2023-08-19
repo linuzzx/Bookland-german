@@ -252,7 +252,7 @@ fun AboutTopBar(navController: NavHostController) {
                         LocalContentAlpha provides ContentAlpha.high,
                     ) {
                         Text(
-                            text = "About",
+                            text = "Über",
                             color = MaterialTheme.colors.onPrimary,
                             style = TextStyle(
                                 fontSize = 30.sp,

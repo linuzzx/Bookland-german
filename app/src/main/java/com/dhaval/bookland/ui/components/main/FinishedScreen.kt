@@ -43,7 +43,7 @@ fun FinishedScreen(navController: NavHostController, items: List<Items>) {
                 .wrapContentSize(Alignment.Center)
         ) {
             Text(
-                text = "Click + to add books",
+                text = "Klicke auf + um Bücher hinzuzufügen",
                 color = Color.Gray,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 textAlign = TextAlign.Center,
